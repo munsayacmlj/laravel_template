@@ -15,8 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/articles', 'ArticlesController@showArticles');
 
+Route::get('articles/create', 'ArticlesController@createForm');
 
-Route::get('/home', function () {
-    return "hello world";
-});
+Route::post('articles/create', 'ArticlesController@store');
+
+Route::get('/articles/{id}', 'ArticlesController@show');
+
+Route::get('articles/{id}/delete', 'ArticlesController@delete');
+
+Route::get('articles/{id}/edit', 'ArticlesController@editForm');
+
+Route::post('articles/{id}/edit', 'ArticlesController@update');
